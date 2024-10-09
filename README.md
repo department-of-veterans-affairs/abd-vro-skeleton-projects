@@ -3,10 +3,11 @@ Repo for skeletons for new VRO projects.
 
 
 ## How to use
-1. Clone the directory with the new project name where desired.
-2. Modify the README.md to show the project title and add any additional project information after the 'Getting Started' level 2 header.
-3. Add more options to `build.gradle`, add the project to a `docker-compose.yml`, and add to repository's `settings.gradle`.
-4. Build and create your application!
+1. Copy-paste the skeleton directory into the desired location and rename the directory.
+2. Modify the `README.md` to show the project title and add any additional project information after the 'Getting Started' level 2 header.
+3. Modify the `pyproject.toml` to change the name of the application to the name of the project. 
+4. Add more options to `build.gradle`, add the project to a `docker-compose.yml`, and add to repository's `settings.gradle`.
+5. Build and create your application!
 
 
 ## Python-Skeleton
