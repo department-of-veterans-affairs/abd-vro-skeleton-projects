@@ -66,6 +66,11 @@ poetry install
 poetry shell
 ```
 
+4. Set up pre-commit hooks:
+```bash
+pre-commit install
+```
+
 ## Available Commands
 
 - Run tests:
@@ -97,6 +102,39 @@ poetry run mypy src
 ```bash
 poetry run ruff format .
 ```
+
+- Run security checks:
+```bash
+poetry run bandit -r src
+```
+
+## Pre-commit Hooks
+
+This project uses pre-commit hooks to ensure code quality. The following checks are performed automatically before each commit:
+
+- Code formatting (ruff)
+- Type checking (mypy)
+- Security checks (bandit)
+- YAML validation
+- Poetry dependency validation
+- And more...
+
+To run pre-commit checks manually:
+```bash
+pre-commit run --all-files
+```
+
+## Code Quality Tools
+
+This project uses several tools to maintain code quality:
+
+- **Ruff**: Fast Python linter and formatter
+- **Mypy**: Static type checker
+- **Bandit**: Security linter
+- **Pytest**: Testing framework
+- **Pre-commit**: Git hook manager
+
+Configuration for these tools can be found in `pyproject.toml` and `.pre-commit-config.yaml`.
 
 ## Project Title
 

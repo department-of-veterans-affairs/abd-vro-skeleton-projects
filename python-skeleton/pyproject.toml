@@ -6,16 +6,21 @@ description = "VRO Project Skeleton"
 authors = ["Your Name <your.email@example.com>"]
 readme = "README.md"
 packages = [{include = "app", from = "src"}]
+package-mode = false
 
 [tool.poetry.dependencies]
 python = ">=3.10"
+fastapi = "^0.115.11"
+httpx = "^0.28.1"
+uvicorn = {version = "^0.34.0", extras = ["standard"]}
 
 [tool.poetry.group.dev.dependencies]
-pytest = "^7.0.0"
-pytest-cov = "^4.0.0"
-mypy = "^1.0.0"
-isort = "^5.0.0"
-ruff = "^0.1.0"
+mypy = "^1.15.0"
+pre-commit = "^4.2.0"
+ruff = "^0.11.2"
+pytest = "^8.3.5"
+pytest-cov = "^6.0.0"
+bandit = {version = "^1.8.3", extras = ["toml"]}
 
 [build-system]
 requires = ["poetry-core"]
@@ -43,25 +48,35 @@ env = [
 # The following files are for development purposes and are not part of the coverage report
 omit = []
 
-[tool.isort]
-profile = "black"
-
 [tool.ruff]
-line-length = 160
+line-length = 127
+target-version = "py310"
+exclude = [".git", "__pycache__", "build", "dist"]
+
+[tool.ruff.lint.mccabe]
+max-complexity = 10
 
 [tool.ruff.lint]
-# Ruff enables Flake8's F rules, along with a subset of the E rules, omitting any stylistic rules that overlap with the use of Ruff formatter
-extend-select = [
-    # Add the `line-too-long` rule to the enforced rule set.
-    "E501"
+select = [
+    "E",   # pycodestyle errors
+    "F",   # pyflakes
+    "I",   # isort
+    "B",   # flake8-bugbear
 ]
+ignore = []
 
 [tool.ruff.format]
 quote-style = "single"
-# Use `\n` line endings for all files
 line-ending = "lf"
+indent-style = "space"
+skip-magic-trailing-comma = false
 
 [tool.mypy]
 python_version = "3.10"
+plugins = ['pydantic.mypy']
 strict = true
 ignore_missing_imports = true
+exclude = ["scripts"]
+
+[tool.bandit]
+exclude_dirs = ["tests"]
