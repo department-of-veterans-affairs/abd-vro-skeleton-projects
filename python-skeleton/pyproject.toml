@@ -1,8 +1,25 @@
 # pyproject.toml
-[project]
-name = 'app'
-version = '0.1'
-requires-python = '>=3.10'
+[tool.poetry]
+name = "app"
+version = "0.1.0"
+description = "VRO Project Skeleton"
+authors = ["Your Name <your.email@example.com>"]
+readme = "README.md"
+packages = [{include = "app", from = "src"}]
+
+[tool.poetry.dependencies]
+python = ">=3.10"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.0.0"
+pytest-cov = "^4.0.0"
+mypy = "^1.0.0"
+isort = "^5.0.0"
+ruff = "^0.1.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
 
 [tool.pytest.ini_options]
 minversion = "6.0"
