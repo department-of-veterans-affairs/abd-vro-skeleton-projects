@@ -1,6 +1,6 @@
-# VRO Project Skeleton
+# Python Skeleton
 
-A skeleton project for new VRO projects using Poetry for dependency management.
+A skeleton project for Python projects using Poetry for dependency management.
 
 ## How to use
 1. Copy-paste the skeleton directory into the desired location and rename the directory.

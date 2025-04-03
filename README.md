@@ -1,11 +1,11 @@
-# abd-vro-skeleton-projects
-Repo for skeletons for new VRO projects.
+# python-skeleton
+Python skeleton project using Poetry for dependency management.
 
 
 ## How to use
 1. Copy-paste the skeleton directory into the desired location and rename the directory.
 2. Modify the `README.md` to show the project title and add any additional project information after the 'Getting Started' level 2 header.
-3. Modify the `pyproject.toml` to change the name of the application to the name of the project. 
+3. Modify the `pyproject.toml` to change the name of the application to the name of the project.
 4. Add more options to `build.gradle`, add the project to a `docker-compose.yml`, and add to repository's `settings.gradle`.
 5. Build and create your application!
 
