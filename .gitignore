@@ -1,9 +1,6 @@
 #Ignoring cache folders
 .cache
 .monokle
-.gradle/
-.gradletasknamecache
-build/
 /out/
 /target/
 /reports/

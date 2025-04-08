@@ -1,15 +1,32 @@
 # pyproject.toml
+[project]
+name = "app"
+version = "0.1.0"
+description = "Python Project Skeleton"
+authors = [
+    {name = "Your Name", email = "your.email@example.com"}
+]
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi>=0.115.11",
+    "httpx>=0.28.1",
+    "uvicorn[standard]>=0.34.0",
+]
+
+[project.scripts]
+app = "app.main:main"
+
 [tool.poetry]
 name = "app"
 version = "0.1.0"
-description = "VRO Project Skeleton"
+description = "Python Project Skeleton"
 authors = ["Your Name <your.email@example.com>"]
 readme = "README.md"
 packages = [{include = "app", from = "src"}]
-package-mode = false
 
 [tool.poetry.dependencies]
-python = ">=3.10"
+python = ">=3.12"
 fastapi = "^0.115.11"
 httpx = "^0.28.1"
 uvicorn = {version = "^0.34.0", extras = ["standard"]}
@@ -20,6 +37,7 @@ pre-commit = "^4.2.0"
 ruff = "^0.11.2"
 pytest = "^8.3.5"
 pytest-cov = "^6.0.0"
+pytest-env = "^1.1.5"
 bandit = {version = "^1.8.3", extras = ["toml"]}
 
 [build-system]
@@ -47,10 +65,25 @@ env = [
 [tool.coverage.run]
 # The following files are for development purposes and are not part of the coverage report
 omit = []
+source = ["src"]
+branch = true
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "def __repr__",
+    "if self.debug:",
+    "raise NotImplementedError",
+    "if __name__ == .__main__.:",
+    "pass",
+    "raise ImportError",
+]
+fail_under = 80
+show_missing = true
 
 [tool.ruff]
 line-length = 127
-target-version = "py310"
+target-version = "py312"
 exclude = [".git", "__pycache__", "build", "dist"]
 
 [tool.ruff.lint.mccabe]
@@ -72,7 +105,7 @@ indent-style = "space"
 skip-magic-trailing-comma = false
 
 [tool.mypy]
-python_version = "3.10"
+python_version = "3.12"
 plugins = ['pydantic.mypy']
 strict = true
 ignore_missing_imports = true
@@ -80,3 +113,5 @@ exclude = ["scripts"]
 
 [tool.bandit]
 exclude_dirs = ["tests"]
+severity = "LOW"
+confidence = "HIGH"

@@ -63,6 +63,10 @@ poetry install
 
 3. Activate the virtual environment:
 ```bash
+# For Poetry 2.0.0+, you need to install the shell plugin first:
+poetry self add poetry-plugin-shell
+
+# Then you can activate the virtual environment:
 poetry shell
 ```
 
@@ -108,6 +112,14 @@ poetry run ruff format .
 poetry run bandit -r src
 ```
 
+## Running Project Scripts
+
+If you have scripts defined in your `pyproject.toml` under `[project.scripts]` or `[tool.poetry.scripts]`, you can run them using:
+
+```bash
+poetry run my-script
+```
+
 ## Pre-commit Hooks
 
 This project uses pre-commit hooks to ensure code quality. The following checks are performed automatically before each commit:
@@ -137,8 +149,10 @@ This project uses several tools to maintain code quality:
 Configuration for these tools can be found in `pyproject.toml` and `.pre-commit-config.yaml`.
 
 ## Project Title
+<!-- Replace with actual project name -->
 
 ## Points of Contact
+<!-- Add team or maintainer contact information here -->
 
 ## Getting Started
 Set up your environment and gather dependencies by following the directions laid out in [Getting Started](getting_started.md).
