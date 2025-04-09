@@ -26,7 +26,10 @@ jobs:
           cache: "poetry"
 
       - name: "Install dependencies"
-        run: poetry install
+        run: |
+          poetry config virtualenvs.create true
+          poetry config virtualenvs.in-project true
+          poetry install --no-interaction --with dev
 
       - name: "Run ruff format"
         run: poetry run ruff format
@@ -42,4 +45,6 @@ jobs:
 
       - name: "Bandit Code Scan"
         if: always()
-        run: poetry run bandit -c .bandit -r -l .
+        run: |
+          poetry run pip install "bandit[toml]"
+          poetry run bandit -c .bandit -r -l .

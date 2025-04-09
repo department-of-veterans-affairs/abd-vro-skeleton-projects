@@ -61,9 +61,6 @@ logs/
 .env.test.local
 .env.production.local
 
-# Poetry
-poetry.lock
-
 # Trunk
 .trunk/
 
