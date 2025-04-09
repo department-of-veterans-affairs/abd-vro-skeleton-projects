@@ -20,4 +20,3 @@ jobs:
       - name: "Check workflow files"
         shell: bash
         run: ${{ steps.get_actionlint.outputs.executable }} -color
-

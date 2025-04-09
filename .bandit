@@ -1,0 +1,10 @@
+---
+# Bandit configuration file
+exclude_dirs:
+  - tests
+  - test
+  - integration
+  - end_to_end
+
+skips:
+  - B101  # Ignore assert statements in tests

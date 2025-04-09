@@ -1,25 +1,87 @@
-#Ignoring cache folders
-.cache
-.monokle
-.gradle/
-.gradletasknamecache
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
 build/
-/out/
-/target/
-/reports/
-docker-machine-driver-hyperkit
-.DS_Store
-.vs
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
 
-target/
-
-.metals
-
-.pid
-.envrc
-.java-version
+# Virtual Environment
+.env
 .venv
+env/
+venv/
+ENV/
+.envrc
 
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*.iws
+*.iml
+*.ipr
+.run/*
+.vs/
+
+# Testing
+.coverage
+htmlcov/
+.tox/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.cache/
+/reports/
+coverage.xml
+
+# Logs
+*.log
+logs/
+
+# Local development
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Trunk
+.trunk/
+
+# Build outputs
+/out/
+/dist/
+
+# Patch/merge artifacts
+*.orig
+*.rej
+.\!*
+
+# Other
+.metals
+.pid
+.monokle
+
+# Docker
+docker-machine-driver-hyperkit
+
+# Helm
 helm-app/envsecrets.env
 tasks/config.temp.dev
 bin/
@@ -29,65 +91,3 @@ helm-app/opa-policies/ingress/test.rego
 # Created by scripts/image-names.sh
 .github/secrel/config-updated.yml
 helm-app/values-updated.yaml
-
-api/bin/**/*.class
-controller/bin/**/*.class
-service/provider/bin/**/*.class
-service/spi/bin/**/*.class
-
-local.properties
-
-HELP.md
-!gradle/wrapper/gradle-wrapper.jar
-#!**/src/main/**/build/
-#!**/src/test/**/build/
-
-### STS ###
-.apt_generated
-.classpath
-.factorypath
-.project
-.settings
-.springBeans
-.sts4-cache
-!**/src/main/**/bin/
-!**/src/test/**/bin/
-
-### IntelliJ IDEA ###
-.idea
-*.iws
-*.iml
-*.ipr
-.run/*
-out/
-!**/src/main/**/out/
-!**/src/test/**/out/
-
-### NetBeans ###
-/nbproject/private/
-/nbbuild/
-/dist/
-/nbdist/
-/.nb-gradle/
-
-### VS Code ###
-.vscode/
-
-### patch cruft
-*.orig
-*.rej
-
-*DS_Store
-.\!*
-
-### Python
-__pycache__
-*.pyc
-.coverage
-/.vs/slnx.sqlite
-/.vs/abd-vro/FileContentIndex/read.lock
-/.vs/abd-vro/FileContentIndex/d9cecb17-da86-4db6-949a-55ee188e92e2.vsidx
-/.vs/abd-vro/FileContentIndex/d645400a-4168-45dd-9581-09680a72a8ce.vsidx
-/.vs/abd-vro/FileContentIndex/c3518251-e5db-40fa-ae34-3e693cabee02.vsidx
-/.vs/abd-vro/FileContentIndex/95bd278b-111f-47e3-ba07-4bd218c9f0f2.vsidx
-*.egg-info/

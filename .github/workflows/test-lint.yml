@@ -1,0 +1,50 @@
+name: "Test, Lint & Coverage"
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+  workflow_call: # Allows this workflow to be called from another workflow
+  workflow_dispatch: # Allow manual triggering
+
+jobs:
+  perform-checks:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: "Checkout source code"
+        uses: actions/checkout@v4
+
+      - name: "Install Poetry"
+        run: pipx install poetry==2.0.0
+
+      - name: "Install Python"
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12.3"
+          cache: "poetry"
+
+      - name: "Install dependencies"
+        run: |
+          poetry config virtualenvs.create true
+          poetry config virtualenvs.in-project true
+          poetry install --no-interaction --with dev
+
+      - name: "Run ruff format"
+        run: poetry run ruff format
+
+      - name: "Run ruff check"
+        run: poetry run ruff check
+
+      - name: "Run mypy"
+        run: poetry run mypy .
+
+      - name: "Run tests with coverage"
+        run: poetry run pytest --cov=src --cov-report=xml --cov-report=term-missing
+
+      - name: "Bandit Code Scan"
+        if: always()
+        run: |
+          poetry run pip install "bandit[toml]"
+          poetry run bandit -c .bandit -r -l .
