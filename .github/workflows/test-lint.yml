@@ -1,6 +1,10 @@
 name: "Test, Lint & Coverage"
 
 on:
+  push:
+    branches:
+      - main
+  pull_request:
   workflow_call: # Allows this workflow to be called from another workflow
   workflow_dispatch: # Allow manual triggering
 
@@ -38,4 +42,4 @@ jobs:
 
       - name: "Bandit Code Scan"
         if: always()
-        run: poetry run bandit -c pyproject.toml -r -l .
+        run: poetry run bandit -c .bandit -r -l .

@@ -112,6 +112,8 @@ ignore_missing_imports = true
 exclude = ["scripts"]
 
 [tool.bandit]
-exclude_dirs = ["tests"]
+exclude_dirs = ["tests", "test", "integration", "end_to_end"]
 severity = "LOW"
 confidence = "HIGH"
+# Add configuration to ignore assert statements in test files
+skips = ["B101"]
